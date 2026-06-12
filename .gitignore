@@ -1,0 +1,99 @@
+# ---------------------------------------------------------------------------
+# macOS
+# ---------------------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# ---------------------------------------------------------------------------
+# Xcode — user-specific files
+# ---------------------------------------------------------------------------
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+
+# Keep shared scheme metadata, ignore the per-user variant.
+**/xcshareddata/xcschemes/xcschememanagement.plist
+
+# ---------------------------------------------------------------------------
+# Xcode — build & derived artifacts
+# ---------------------------------------------------------------------------
+build/
+DerivedData/
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.xcarchive
+*.xcresult
+*.app
+*.appex
+timeline.xctimeline
+playground.xcworkspace
+
+# ---------------------------------------------------------------------------
+# Swift Package Manager
+# ---------------------------------------------------------------------------
+.build/
+.swiftpm/
+Packages/
+Package.pins
+Package.resolved
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
+# ---------------------------------------------------------------------------
+# CocoaPods (if you ever add it)
+# ---------------------------------------------------------------------------
+Pods/
+*.xcworkspace/contents.xcworkspacedata.lock
+
+# ---------------------------------------------------------------------------
+# Carthage (if you ever add it)
+# ---------------------------------------------------------------------------
+Carthage/Build/
+Carthage/Checkouts/
+
+# ---------------------------------------------------------------------------
+# Fastlane
+# ---------------------------------------------------------------------------
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output/
+
+# ---------------------------------------------------------------------------
+# Code coverage / profiling
+# ---------------------------------------------------------------------------
+*.gcno
+*.gcda
+*.profraw
+*.profdata
+
+# ---------------------------------------------------------------------------
+# Editors
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ---------------------------------------------------------------------------
+# Misc
+# ---------------------------------------------------------------------------
+*.log
+.env
+.env.local

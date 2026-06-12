@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct blogApp: App {
+    @StateObject private var blogService = BlogService()
+    @StateObject private var bookmarkStore = BookmarkStore()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(blogService)
+                .environmentObject(bookmarkStore)
         }
     }
 }
