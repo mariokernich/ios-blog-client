@@ -21,8 +21,8 @@ final class BlogService: ObservableObject {
     @Published private(set) var posts: [Post] = []
     @Published private(set) var state: LoadingState = .idle
 
-    private let jsonURL = URL(string: "https://blog.kernich.de/index.json")!
-    private let rssURL  = URL(string: "https://blog.kernich.de/index.xml")!
+    private let jsonURL = URL(string: "https://kernich.de/index.json")!
+    private let rssURL  = URL(string: "https://kernich.de/index.xml")!
 
     private let session: URLSession
 

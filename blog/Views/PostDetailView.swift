@@ -289,7 +289,7 @@ private struct ArticleWebView: UIViewRepresentable {
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         if context.coordinator.lastHTML != html {
-            webView.loadHTMLString(html, baseURL: URL(string: "https://blog.kernich.de"))
+            webView.loadHTMLString(html, baseURL: URL(string: "https://kernich.de"))
             context.coordinator.lastHTML = html
         }
     }

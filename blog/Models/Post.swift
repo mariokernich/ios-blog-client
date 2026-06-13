@@ -6,7 +6,7 @@
 import Foundation
 
 /// Represents a single blog post coming from the Hugo JSON output
-/// (https://blog.kernich.de/index.json).
+/// (https://kernich.de/index.json).
 struct Post: Identifiable, Hashable, Codable {
     let title: String
     let permalink: URL
