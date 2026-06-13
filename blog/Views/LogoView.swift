@@ -2,11 +2,10 @@
 //  LogoView.swift
 //  blog
 //
-//  Renders the Kernich logo (remote SVG) inside a transparent WKWebView so it
-//  can sit as the principal navigation-bar title. SVGs aren't supported by
-//  AsyncImage / UIImage, so we download the SVG markup once via LogoLoader
-//  and inline it into the page. Colors are forced via CSS so the logo adapts
-//  to light & dark mode.
+//  Renders the bundled app logo (`logo.svg`) inside a transparent WKWebView
+//  so it can sit as the principal navigation-bar title. SVGs aren't supported
+//  by AsyncImage / UIImage, so we read the SVG markup once via LogoLoader and
+//  inline it into the page. The SVG's own colors (gradient) are preserved.
 //
 
 import SwiftUI
@@ -17,12 +16,11 @@ struct LogoView: View {
     var width: CGFloat = 140
 
     @StateObject private var loader = LogoLoader.shared
-    @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
         Group {
             if let svg = loader.svg {
-                SVGInlineWebView(svg: svg, tint: tintHex)
+                SVGInlineWebView(svg: svg)
             } else {
                 Text("Blog")
                     .font(.headline)
@@ -30,12 +28,8 @@ struct LogoView: View {
             }
         }
         .frame(width: width, height: height)
-        .accessibilityLabel("Kernich")
+        .accessibilityLabel("Blog")
         .onAppear { loader.loadIfNeeded() }
-    }
-
-    private var tintHex: String {
-        colorScheme == .dark ? "#FFFFFF" : "#111111"
     }
 }
 
@@ -43,7 +37,6 @@ struct LogoView: View {
 
 private struct SVGInlineWebView: UIViewRepresentable {
     let svg: String
-    let tint: String
 
     func makeUIView(context: Context) -> WKWebView {
         let view = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
@@ -86,7 +79,6 @@ private struct SVGInlineWebView: UIViewRepresentable {
             display: flex;
             align-items: center;
             justify-content: center;
-            color: \(tint);
           }
           .wrap svg {
             max-height: 100%;
@@ -94,18 +86,6 @@ private struct SVGInlineWebView: UIViewRepresentable {
             height: 100%;
             width: auto;
             display: block;
-          }
-          /* Force every fill/stroke in the SVG to the tint color so the
-             logo adapts to dark / light appearance. */
-          .wrap svg, .wrap svg * {
-            fill: \(tint) !important;
-            stroke: \(tint) !important;
-          }
-          .wrap svg [fill="none"], .wrap svg [fill='none'] {
-            fill: none !important;
-          }
-          .wrap svg [stroke="none"], .wrap svg [stroke='none'] {
-            stroke: none !important;
           }
         </style>
         </head>

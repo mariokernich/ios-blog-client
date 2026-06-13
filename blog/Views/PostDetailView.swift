@@ -108,9 +108,12 @@ struct PostDetailView: View {
               }
               .container { padding: 20px 20px 56px; max-width: 720px; margin: 0 auto; }
 
+              /* Hero spans the full viewport width regardless of the article
+                 container's max-width / horizontal padding. Rendered outside
+                 .container in the body markup below. */
               img.hero {
-                width: calc(100% + 40px);
-                margin: -20px -20px 20px;
+                width: 100%;
+                margin: 0 0 20px;
                 display: block;
                 max-height: 260px;
                 object-fit: cover;
@@ -249,8 +252,8 @@ struct PostDetailView: View {
             </style>
           </head>
           <body>
+            \(hero)
             <div class="container">
-              \(hero)
               <h1 class="title">\(escape(post.title))</h1>
               \(metaLine)
               \(tags)
